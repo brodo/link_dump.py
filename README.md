@@ -1,6 +1,7 @@
 # link_dump.py
 
-This is a static site generator in ~200 LOC for 'link heavy', minimalistic blogs like [fefes blog](https://blog.fefe.de).
+This is a static site generator in ~200 LOC of Python 3 for 'link heavy', minimalistic blogs like
+[fefes blog](https://blog.fefe.de). It has no external dependencies. 
 
 ## Installation
 
