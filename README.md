@@ -9,7 +9,8 @@ Clone this repo and modify the templates in `templates` to your liking. Add asse
 ## Writing Blog Posts
 
 1. Create a directory called `posts` in the same folder where `link_dump.py` is located.
-2. Create an `ini` file with a filename like this: `YYYY-MM-DD_Post-title.ini`, e.g. `2018-02-10_My-Blogpost.ini`
+2. Create an `ini` file with a filename like this: `YYYY-MM-DD_Post-title.ini`, e.g. `2018-02-10_My-Blogpost.ini` in the
+`posts` directory.
 3. Add the following content:
     ```ini    
     [Post Title]
