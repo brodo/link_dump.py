@@ -155,8 +155,24 @@ def generate_post_html(name: str) -> str:
     li_tags = [f'<li><a href="../tags/{tag}.html">{tag}</a></li>' for tag in post.tags]
     tag_list = '\n'.join(li_tags)
     comment = f'<p class="hug comment"> {post.comment}</p>' if post.comment else ''
+    meta_tags = [f'<meta property="article:tag" content="{tag}"/>' for tag in post.tags]
+    meta_video = video_meta_for_link(post.link)
+    meta_image = image_meta_for_link(post.link)
     return html.format(title=post.title, description=post.description,
-                       link=post.link, tags=tag_list, comment=comment)
+                       link=post.link, tags=tag_list, comment=comment, meta_tags="\n".join(meta_tags),
+                       meta_video=meta_video, meta_image=meta_image)
+
+
+def image_meta_for_link(link: str):
+    if link.startswith('https://www.youtube.com/watch?v='):
+        return f'<meta property="og:image" content="https://img.youtube.com/vi/{link.split("=")[1]}/hqdefault.jpg" />'
+    return ''
+
+
+def video_meta_for_link(link: str):
+    if link.startswith('https://www.youtube.com/watch?v='):
+        return f'<meta property="og:video" content="https://www.youtube.com/v/{link.split("=")[1]}" />'
+    return ''
 
 
 @lru_cache(maxsize=100)
